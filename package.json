@@ -1,0 +1,40 @@
+{
+  "name": "smartphone-analysis-2025",
+  "version": "1.0.0",
+  "description": "Comprehensive analysis of flagship smartphones, AI capabilities, and long-term value for tech-savvy professionals in 2025",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build step required'",
+    "start": "npx serve .",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "smartphone",
+    "analysis",
+    "comparison",
+    "flagship",
+    "iphone",
+    "android",
+    "samsung",
+    "google",
+    "pixel",
+    "oneplus",
+    "tech",
+    "review",
+    "2025"
+  ],
+  "author": "Smartphone Analysis Team",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/smartphone-analysis-2025.git"
+  },
+  "homepage": "https://smartphone-analysis-2025.vercel.app"
+}
