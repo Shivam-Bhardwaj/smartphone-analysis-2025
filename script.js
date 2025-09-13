@@ -286,40 +286,48 @@ function addComparisonTool() {
     comparisonContainer.className = 'comparison-tool';
     comparisonContainer.innerHTML = `
         <div class="comparison-tool-header">
-            <h3>Device Comparison Tool</h3>
-            <p>Select up to 3 devices to compare side by side</p>
+            <h3>Interactive Device Comparison Tool</h3>
+            <p>Select up to 3 devices to compare side by side with detailed specifications</p>
         </div>
         <div class="comparison-devices">
             <div class="device-selector">
+                <label for="device1">Device 1:</label>
                 <select id="device1">
                     <option value="">Select Device 1</option>
                     <option value="iphone17">iPhone 17 Pro</option>
                     <option value="galaxy25">Galaxy S25 Ultra</option>
                     <option value="pixel10">Pixel 10 Pro</option>
                     <option value="oneplus13">OnePlus 13</option>
+                    <option value="xiaomi15">Xiaomi 15</option>
                 </select>
             </div>
             <div class="device-selector">
+                <label for="device2">Device 2:</label>
                 <select id="device2">
                     <option value="">Select Device 2</option>
                     <option value="iphone17">iPhone 17 Pro</option>
                     <option value="galaxy25">Galaxy S25 Ultra</option>
                     <option value="pixel10">Pixel 10 Pro</option>
                     <option value="oneplus13">OnePlus 13</option>
+                    <option value="xiaomi15">Xiaomi 15</option>
                 </select>
             </div>
             <div class="device-selector">
+                <label for="device3">Device 3:</label>
                 <select id="device3">
                     <option value="">Select Device 3</option>
                     <option value="iphone17">iPhone 17 Pro</option>
                     <option value="galaxy25">Galaxy S25 Ultra</option>
                     <option value="pixel10">Pixel 10 Pro</option>
                     <option value="oneplus13">OnePlus 13</option>
+                    <option value="xiaomi15">Xiaomi 15</option>
                 </select>
             </div>
         </div>
         <div class="comparison-results" id="comparisonResults">
-            <!-- Results will be populated here -->
+            <div class="comparison-placeholder">
+                <p>Select devices above to see detailed comparison</p>
+            </div>
         </div>
     `;
     

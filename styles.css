@@ -193,6 +193,46 @@ body {
     opacity: 0.8;
 }
 
+/* Device Showcase */
+.device-showcase {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.device-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    min-width: 120px;
+}
+
+.device-preview:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.device-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.device-preview span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0.9;
+}
+
 /* Sections */
 .section {
     padding: 80px 0;
@@ -741,6 +781,140 @@ body {
     font-weight: 600;
 }
 
+/* Professional Use Cases */
+.use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.use-case-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.use-case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.use-case-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.use-case-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--text-primary);
+}
+
+.use-case-card ul,
+.use-case-card ol {
+    list-style: none;
+    padding: 0;
+}
+
+.use-case-card li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.use-case-card li:last-child {
+    border-bottom: none;
+}
+
+.use-case-card strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.professional-impact,
+.workflow-integration {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.professional-impact p,
+.workflow-integration p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Ecosystem Analysis */
+.ecosystem-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.ecosystem-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.ecosystem-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ecosystem-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.ecosystem-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--text-primary);
+}
+
+.ecosystem-benefits,
+.switching-costs,
+.flexibility-advantages,
+.business-advantages {
+    margin-bottom: 1.5rem;
+}
+
+.ecosystem-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ecosystem-card li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.ecosystem-card li:last-child {
+    border-bottom: none;
+}
+
+.ecosystem-card strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
 /* Decision Framework */
 .decision-framework {
     margin-top: 4rem;
@@ -861,7 +1035,7 @@ body {
         text-align: center;
         transition: 0.3s;
         box-shadow: var(--shadow-lg);
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
     
     .nav-menu.active {
@@ -869,64 +1043,118 @@ body {
     }
     
     .nav-menu li {
-        margin: 1rem 0;
+        margin: 0.75rem 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .hero {
+        padding: 100px 0 60px;
     }
     
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.1;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
     }
     
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        margin-bottom: 2rem;
     }
     
     .stat-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .device-showcase {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .device-preview {
+        padding: 0.75rem;
+        min-width: 100px;
+    }
+    
+    .device-icon {
+        font-size: 1.5rem;
+    }
+    
+    .device-preview span {
+        font-size: 0.8rem;
+    }
+    
+    .section {
+        padding: 60px 0;
     }
     
     .section h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
     
     .summary-grid,
     .device-grid,
     .ai-features-grid,
     .recommendations-grid,
-    .framework-grid {
+    .framework-grid,
+    .use-case-grid,
+    .ecosystem-comparison {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
+    .summary-card,
     .device-card,
-    .recommendation-card {
+    .ai-feature-card,
+    .recommendation-card,
+    .framework-card,
+    .use-case-card,
+    .ecosystem-card {
         padding: 1.5rem;
     }
     
     .comparison-tabs {
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
     
     .tab-button {
         padding: 0.75rem 1rem;
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .chart-container {
-        height: 300px;
+        height: 250px;
         padding: 1rem;
     }
     
     .recommendation-card h3 {
         padding-right: 0;
         margin-bottom: 1rem;
+        font-size: 1.3rem;
     }
     
     .tier-badge {
@@ -934,6 +1162,27 @@ body {
         display: inline-block;
         margin-bottom: 1rem;
         border-radius: var(--border-radius);
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .comparison-devices {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .device-selector select {
+        font-size: 0.95rem;
+        padding: 0.6rem;
+    }
+    
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.75rem 0.5rem;
     }
 }
 
@@ -1004,11 +1253,148 @@ html {
     pointer-events: none;
 }
 
+/* Hyperlink Styling */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--primary-color);
+}
+
+/* Benchmark Links */
+.spec-value a,
+.comparison-table a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.spec-value a:hover,
+.comparison-table a:hover {
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-dark);
+    text-decoration: none;
+}
+
 /* Focus states for accessibility */
 button:focus,
 a:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+/* Comparison Tool */
+.comparison-tool {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.comparison-tool-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.comparison-tool-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.comparison-tool-header p {
+    color: var(--text-secondary);
+}
+
+.comparison-devices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.device-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.device-selector label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.device-selector select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background: white;
+    transition: var(--transition);
+}
+
+.device-selector select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.comparison-results {
+    margin-top: 2rem;
+}
+
+.comparison-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-style: italic;
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--border-color);
+}
+
+.comparison-table {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+    background: var(--surface-color);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.comparison-table td {
+    color: var(--text-secondary);
 }
 
 /* Print styles */
