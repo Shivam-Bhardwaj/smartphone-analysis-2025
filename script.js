@@ -136,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Decision tree functionality
     initializeDecisionTree();
+    
+    // Fixed navigation buttons functionality
+    initializeFixedNavButtons();
 });
 
 // Decision tree functionality
@@ -171,6 +174,50 @@ function initializeDecisionTree() {
     });
 }
 
+
+// Fixed navigation buttons functionality
+function initializeFixedNavButtons() {
+    const scrollUpBtn = document.getElementById('scroll-up');
+    const scrollDownBtn = document.getElementById('scroll-down');
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    
+    // Scroll up functionality
+    scrollUpBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Scroll down functionality
+    scrollDownBtn.addEventListener('click', function() {
+        const currentScroll = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Scroll down by one viewport height
+        const nextScroll = Math.min(currentScroll + windowHeight, documentHeight - windowHeight);
+        
+        window.scrollTo({
+            top: nextScroll,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Menu toggle functionality
+    menuToggleBtn.addEventListener('click', function() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('mobile-open');
+        
+        // Toggle hamburger icon
+        const icon = this.querySelector('svg');
+        if (navMenu.classList.contains('mobile-open')) {
+            icon.innerHTML = '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
+        } else {
+            icon.innerHTML = '<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>';
+        }
+    });
+}
 
 // Utility functions (minimal)
 function formatPrice(price) {
