@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "smartphone-analysis-2025",
   "builds": [
     {
       "src": "index.html",
@@ -58,11 +57,6 @@
       ]
     }
   ],
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "env": {
     "NODE_ENV": "production"
   }
