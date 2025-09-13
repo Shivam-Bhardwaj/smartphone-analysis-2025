@@ -731,6 +731,85 @@ a:hover {
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    .tco-header {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+        font-size: var(--font-size-xs);
+    }
+    
+    .tco-header .metric-label {
+        display: none;
+    }
+    
+    .tco-header::before {
+        content: "Device | Initial | Resale | TCO | ROI";
+        display: block;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-xs);
+        font-size: var(--font-size-xs);
+    }
+    
+    .tco-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-sm) 0;
+        border: 1px solid var(--border);
+        border-radius: var(--border-radius);
+        margin-bottom: var(--spacing-sm);
+        padding: var(--spacing-sm);
+        background: var(--surface-light);
+    }
+    
+    .tco-row .device-name {
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .tco-row .cost,
+    .tco-row .resale,
+    .tco-row .tco-value {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-xs);
+        font-size: var(--font-size-xs);
+    }
+    
+    .tco-row .cost::before {
+        content: "Initial Cost: ";
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+    
+    .tco-row .resale::before {
+        content: "Resale Value: ";
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+    
+    .tco-row .tco-value::before {
+        content: "Total Cost: ";
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+    
+    .tco-row .roi-bar {
+        margin-top: var(--spacing-xs);
+    }
+    
+    .tco-row .roi-bar::before {
+        content: "ROI: ";
+        font-weight: 500;
+        color: var(--text-secondary);
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-xs);
+        display: block;
+    }
+}
+
 .device-name {
     font-weight: 500;
     color: var(--text-primary);
