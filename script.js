@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Initialize visual elements
+    initializePerformanceChart();
+    initializeDeviceModal();
+    
     // Initialize comparison tool
     addComparisonTool();
     
@@ -386,3 +390,231 @@ document.addEventListener('click', function(e) {
         trackInteraction('tab_click', e.target.textContent);
     }
 });
+
+// Performance Chart Initialization
+function initializePerformanceChart() {
+    const ctx = document.getElementById('performanceChart');
+    if (!ctx) return;
+    
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Performance', 'Camera', 'AI Features', 'Ecosystem', 'Value', 'Battery'],
+            datasets: [{
+                label: 'iPhone 17 Pro',
+                data: [95, 95, 85, 98, 70, 80],
+                borderColor: '#007AFF',
+                backgroundColor: 'rgba(0, 122, 255, 0.1)',
+                borderWidth: 2
+            }, {
+                label: 'Galaxy S25 Ultra',
+                data: [92, 98, 75, 85, 88, 90],
+                borderColor: '#000000',
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                borderWidth: 2
+            }, {
+                label: 'Pixel 10 Pro',
+                data: [65, 95, 95, 82, 85, 85],
+                borderColor: '#4285F4',
+                backgroundColor: 'rgba(66, 133, 244, 0.1)',
+                borderWidth: 2
+            }, {
+                label: 'OnePlus 13',
+                data: [95, 82, 70, 78, 90, 95],
+                borderColor: '#EB0029',
+                backgroundColor: 'rgba(235, 0, 41, 0.1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20
+                    }
+                }
+            },
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        stepSize: 20
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Device Modal Functionality
+function initializeDeviceModal() {
+    const modal = document.getElementById('deviceModal');
+    const closeBtn = document.querySelector('.close-modal');
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+// Show Device Details
+function showDeviceDetails(deviceId) {
+    const modal = document.getElementById('deviceModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    const deviceData = {
+        iphone17: {
+            name: 'iPhone 17 Pro',
+            price: '₹1,34,900',
+            chipset: 'A19 Pro (3nm TSMC N3P)',
+            display: '6.3" LTPO OLED, 120Hz ProMotion',
+            camera: '48MP main, 12MP ultrawide, 12MP telephoto (3x)',
+            battery: '3,500mAh, 20W charging',
+            performance: 'Single: 4,100 | Multi: 10,200',
+            aiScore: '85/100',
+            cameraScore: '95/100',
+            ecosystemScore: '98/100',
+            highlights: [
+                'Best ecosystem integration',
+                'Superior video recording',
+                'Longest software support',
+                'Premium build quality'
+            ]
+        },
+        galaxy25: {
+            name: 'Galaxy S25 Ultra',
+            price: '₹1,29,999',
+            chipset: 'Snapdragon 8 Elite (custom variant)',
+            display: '6.8" Dynamic AMOLED 2X, 120Hz',
+            camera: '200MP main, 50MP periscope, 12MP ultrawide, 10MP telephoto',
+            battery: '5,000mAh, 45W charging',
+            performance: 'Single: 3,001 | Multi: 9,381',
+            aiScore: '75/100',
+            cameraScore: '98/100',
+            ecosystemScore: '85/100',
+            highlights: [
+                'Best camera system overall',
+                'S Pen productivity features',
+                '7-year software updates',
+                'Excellent value proposition'
+            ]
+        },
+        pixel10: {
+            name: 'Pixel 10 Pro',
+            price: '₹79,999',
+            chipset: 'Google Tensor G5 (4nm)',
+            display: '6.2" LTPO OLED, 120Hz',
+            camera: '50MP main, 12MP ultrawide, 48MP telephoto',
+            battery: '4,500mAh, 30W charging',
+            performance: 'Single: 2,333 | Multi: 6,375',
+            aiScore: '95/100',
+            cameraScore: '95/100',
+            ecosystemScore: '82/100',
+            highlights: [
+                'Best AI features and implementation',
+                'Superior computational photography',
+                '8-year software support',
+                'Clean Android experience'
+            ]
+        },
+        oneplus13: {
+            name: 'OnePlus 13',
+            price: '₹69,999',
+            chipset: 'Snapdragon 8 Elite',
+            display: '6.8" LTPO OLED, 120Hz',
+            camera: '50MP main, 12MP ultrawide, 64MP periscope',
+            battery: '5,400mAh, 100W charging',
+            performance: 'Single: 2,965 | Multi: 9,271',
+            aiScore: '70/100',
+            cameraScore: '82/100',
+            ecosystemScore: '78/100',
+            highlights: [
+                'Fastest charging (100W)',
+                'Excellent price-performance ratio',
+                'Clean, fast software',
+                'Good gaming performance'
+            ]
+        }
+    };
+    
+    const device = deviceData[deviceId];
+    if (!device) return;
+    
+    modalContent.innerHTML = `
+        <div class="device-modal-content">
+            <div class="modal-header">
+                <h2>${device.name}</h2>
+                <div class="modal-price">${device.price}</div>
+            </div>
+            
+            <div class="modal-specs">
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Chipset</span>
+                        <span class="spec-value">${device.chipset}</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Display</span>
+                        <span class="spec-value">${device.display}</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Camera</span>
+                        <span class="spec-value">${device.camera}</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Battery</span>
+                        <span class="spec-value">${device.battery}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-scores">
+                <h3>Performance Scores</h3>
+                <div class="score-grid">
+                    <div class="score-item">
+                        <span class="score-label">AI Features</span>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${device.aiScore}"></div>
+                        </div>
+                        <span class="score-value">${device.aiScore}</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Camera</span>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${device.cameraScore}"></div>
+                        </div>
+                        <span class="score-value">${device.cameraScore}</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Ecosystem</span>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${device.ecosystemScore}"></div>
+                        </div>
+                        <span class="score-value">${device.ecosystemScore}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-highlights">
+                <h3>Key Highlights</h3>
+                <ul>
+                    ${device.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+}

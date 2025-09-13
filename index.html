@@ -33,6 +33,9 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="./styles.css">
+    
+    <!-- Chart.js for interactive visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -113,30 +116,59 @@
     <section id="executive-summary" class="section">
         <div class="container">
             <h2>Executive Summary</h2>
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <h3>Price Efficiency Leaders</h3>
-                    <ul>
-                        <li><strong>Samsung Galaxy S25:</strong> Best overall value with only 6.4% India premium</li>
-                        <li><strong>Google Pixel 10:</strong> Strongest AI capabilities at ₹79,999</li>
-                        <li><strong>OnePlus 13:</strong> Best alternative flagship at ₹69,999</li>
-                    </ul>
+            
+            <!-- Visual Performance Overview -->
+            <div class="visual-overview">
+                <div class="performance-chart-container">
+                    <canvas id="performanceChart"></canvas>
                 </div>
-                <div class="summary-card">
-                    <h3>Premium Choice Champions</h3>
-                    <ul>
-                        <li><strong>iPhone 17 Pro:</strong> Highest ecosystem integration (98/100)</li>
-                        <li><strong>Galaxy S25 Ultra:</strong> Ultimate camera performance (98/100)</li>
-                        <li><strong>Pixel 10 Pro XL:</strong> AI leadership (95/100 AI score)</li>
-                    </ul>
+                <div class="key-metrics">
+                    <div class="metric-card">
+                        <div class="metric-value">6.4%</div>
+                        <div class="metric-label">Lowest India Premium</div>
+                        <div class="metric-device">Samsung Galaxy S25</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">98/100</div>
+                        <div class="metric-label">Best Camera Score</div>
+                        <div class="metric-device">Galaxy S25 Ultra</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">₹89,432</div>
+                        <div class="metric-label">Lowest 5-Year TCO</div>
+                        <div class="metric-device">Samsung Galaxy S25</div>
+                    </div>
                 </div>
-                <div class="summary-card">
-                    <h3>Total Cost of Ownership (5-Year)</h3>
-                    <ol>
-                        <li><strong>Samsung Galaxy S25:</strong> ₹89,432 (lowest depreciation)</li>
-                        <li><strong>iPhone 17:</strong> ₹92,678 (best resale value)</li>
-                        <li><strong>Pixel 10:</strong> ₹95,234 (AI future-proofing)</li>
-                    </ol>
+            </div>
+            
+            <!-- Quick Visual Comparison -->
+            <div class="quick-comparison">
+                <h3>Top Performers by Category</h3>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="category-icon value-icon"></div>
+                        <h4>Best Value</h4>
+                        <div class="winner">Samsung Galaxy S25</div>
+                        <div class="score">6.4% premium</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon camera-icon"></div>
+                        <h4>Best Camera</h4>
+                        <div class="winner">Galaxy S25 Ultra</div>
+                        <div class="score">98/100</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon ai-icon"></div>
+                        <h4>Best AI</h4>
+                        <div class="winner">Pixel 10 Pro</div>
+                        <div class="score">95/100</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon ecosystem-icon"></div>
+                        <h4>Best Ecosystem</h4>
+                        <div class="winner">iPhone 17 Pro</div>
+                        <div class="score">98/100</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,137 +177,124 @@
     <!-- Flagship Analysis -->
     <section id="flagship-analysis" class="section">
         <div class="container">
-            <h2>Current Flagship Analysis</h2>
+            <h2>Flagship Device Showcase</h2>
             
-            <!-- iPhone 17 Series -->
-            <div class="device-section">
-                <div class="device-header">
-                    <h3>iPhone 17 Series: The Ecosystem Champion</h3>
-                </div>
-                <div class="device-grid">
-                    <div class="device-card">
-                        <h4>iPhone 17 (₹82,900 | $799)</h4>
-                        <div class="specs">
-                            <div class="spec-item">
-                                <span class="spec-label">Chipset:</span>
-                                <span class="spec-value">A19 (3nm TSMC N3P)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Performance:</span>
-                                <span class="spec-value">Single: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">3,895</a> | Multi: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">9,746</a></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Display:</span>
-                                <span class="spec-value">6.3" LTPO OLED, 120Hz ProMotion</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Camera:</span>
-                                <span class="spec-value">48MP main, 12MP ultrawide</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Battery:</span>
-                                <span class="spec-value">3,500mAh, 20W charging</span>
-                            </div>
-                        </div>
-                        <p class="analysis">The base iPhone 17 offers excellent value with the same A19 chip as Pro models. Perfect for users who prioritize performance over camera features. <a href="#ecosystem">See ecosystem analysis</a> for integration benefits.</p>
+            <!-- Interactive Device Grid -->
+            <div class="device-showcase-grid">
+                <div class="device-showcase-card" data-device="iphone17">
+                    <div class="device-visual">
+                        <div class="device-mockup iphone-mockup"></div>
+                        <div class="device-badge">Ecosystem Champion</div>
                     </div>
-                    
-                    <div class="device-card">
-                        <h4>iPhone 17 Pro (₹1,34,900 | $999)</h4>
-                        <div class="specs">
-                            <div class="spec-item">
-                                <span class="spec-label">Chipset:</span>
-                                <span class="spec-value">A19 Pro (3nm TSMC N3P)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Performance:</span>
-                                <span class="spec-value">Single: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">4,100</a> | Multi: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">10,200</a></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Display:</span>
-                                <span class="spec-value">6.3" LTPO OLED, 120Hz ProMotion</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Camera:</span>
-                                <span class="spec-value">48MP main, 12MP ultrawide, 12MP telephoto (3x)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Battery:</span>
-                                <span class="spec-value">3,500mAh, 20W charging</span>
-                            </div>
+                    <div class="device-info">
+                        <h3>iPhone 17 Pro</h3>
+                        <div class="price">₹1,34,900</div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Performance</div>
+                            <div class="bar-fill" style="width: 95%"></div>
+                            <div class="bar-value">95/100</div>
                         </div>
-                        <p class="analysis">The Pro model justifies its premium with exceptional camera capabilities and professional video features. The 8x telephoto is industry-leading. <a href="#professional-use">See professional use cases</a> for detailed analysis.</p>
+                        <div class="performance-bar">
+                            <div class="bar-label">Camera</div>
+                            <div class="bar-fill" style="width: 95%"></div>
+                            <div class="bar-value">95/100</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Ecosystem</div>
+                            <div class="bar-fill" style="width: 98%"></div>
+                            <div class="bar-value">98/100</div>
+                        </div>
+                        <button class="device-details-btn" onclick="showDeviceDetails('iphone17')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="device-showcase-card" data-device="galaxy25">
+                    <div class="device-visual">
+                        <div class="device-mockup galaxy-mockup"></div>
+                        <div class="device-badge">Value Leader</div>
+                    </div>
+                    <div class="device-info">
+                        <h3>Galaxy S25 Ultra</h3>
+                        <div class="price">₹1,29,999</div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Performance</div>
+                            <div class="bar-fill" style="width: 92%"></div>
+                            <div class="bar-value">92/100</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Camera</div>
+                            <div class="bar-fill" style="width: 98%"></div>
+                            <div class="bar-value">98/100</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Value</div>
+                            <div class="bar-fill" style="width: 88%"></div>
+                            <div class="bar-value">88/100</div>
+                        </div>
+                        <button class="device-details-btn" onclick="showDeviceDetails('galaxy25')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="device-showcase-card" data-device="pixel10">
+                    <div class="device-visual">
+                        <div class="device-mockup pixel-mockup"></div>
+                        <div class="device-badge">AI Powerhouse</div>
+                    </div>
+                    <div class="device-info">
+                        <h3>Pixel 10 Pro</h3>
+                        <div class="price">₹79,999</div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Performance</div>
+                            <div class="bar-fill" style="width: 65%"></div>
+                            <div class="bar-value">65/100</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">AI Features</div>
+                            <div class="bar-fill" style="width: 95%"></div>
+                            <div class="bar-value">95/100</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Camera</div>
+                            <div class="bar-fill" style="width: 95%"></div>
+                            <div class="bar-value">95/100</div>
+                        </div>
+                        <button class="device-details-btn" onclick="showDeviceDetails('pixel10')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="device-showcase-card" data-device="oneplus13">
+                    <div class="device-visual">
+                        <div class="device-mockup oneplus-mockup"></div>
+                        <div class="device-badge">Performance Beast</div>
+                    </div>
+                    <div class="device-info">
+                        <h3>OnePlus 13</h3>
+                        <div class="price">₹69,999</div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Performance</div>
+                            <div class="bar-fill" style="width: 95%"></div>
+                            <div class="bar-value">95/100</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Charging</div>
+                            <div class="bar-fill" style="width: 100%"></div>
+                            <div class="bar-value">100W</div>
+                        </div>
+                        <div class="performance-bar">
+                            <div class="bar-label">Value</div>
+                            <div class="bar-fill" style="width: 90%"></div>
+                            <div class="bar-value">90/100</div>
+                        </div>
+                        <button class="device-details-btn" onclick="showDeviceDetails('oneplus13')">View Details</button>
                     </div>
                 </div>
             </div>
-
-            <!-- Google Pixel 10 Series -->
-            <div class="device-section">
-                <div class="device-header">
-                    <h3>Google Pixel 10 Series: The AI Powerhouse</h3>
-                </div>
-                <div class="device-grid">
-                    <div class="device-card">
-                        <h4>Pixel 10 (₹79,999 | $799)</h4>
-                        <div class="specs">
-                            <div class="spec-item">
-                                <span class="spec-label">Chipset:</span>
-                                <span class="spec-value">Google Tensor G5 (4nm)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Performance:</span>
-                                <span class="spec-value">Single: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">2,333</a> | Multi: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">6,375</a></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Display:</span>
-                                <span class="spec-value">6.2" LTPO OLED, 120Hz</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Camera:</span>
-                                <span class="spec-value">50MP main, 12MP ultrawide</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Battery:</span>
-                                <span class="spec-value">4,500mAh, 30W charging</span>
-                            </div>
-                        </div>
-                        <p class="analysis">Google's AI-first approach pays dividends in real-world usage. Features like real-time translation and Magic Eraser create genuinely useful AI experiences. <a href="#ai-features">Explore AI capabilities</a> for detailed feature analysis.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Samsung Galaxy S25 Series -->
-            <div class="device-section">
-                <div class="device-header">
-                    <h3>Samsung Galaxy S25 Series: The Value Leader</h3>
-                </div>
-                <div class="device-grid">
-                    <div class="device-card">
-                        <h4>Galaxy S25 (₹74,999 | $799)</h4>
-                        <div class="specs">
-                            <div class="spec-item">
-                                <span class="spec-label">Chipset:</span>
-                                <span class="spec-value">Snapdragon 8 Elite (custom variant)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Performance:</span>
-                                <span class="spec-value">Single: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">3,001</a> | Multi: <a href="https://browser.geekbench.com/processor-benchmarks" target="_blank">9,381</a></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Display:</span>
-                                <span class="spec-value">6.2" Dynamic AMOLED 2X, 120Hz</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Camera:</span>
-                                <span class="spec-value">50MP main, 12MP ultrawide, 10MP telephoto (3x)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Battery:</span>
-                                <span class="spec-value">4,000mAh, 45W charging</span>
-                            </div>
-                        </div>
-                        <p class="analysis">Samsung delivers flagship performance at a competitive price point. The 7-year update promise makes it an excellent long-term investment. <a href="#comparison">Compare performance metrics</a> and <a href="#recommendations">see final recommendations</a>.</p>
-                    </div>
+            
+            <!-- Device Details Modal -->
+            <div id="deviceModal" class="device-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div id="modalContent"></div>
                 </div>
             </div>
         </div>
