@@ -9,8 +9,8 @@
     /* Light theme colors */
     --primary: #1a1a1a;
     --secondary: #4a4a4a;
-    --accent: #007AFF;
-    --accent-rgb: 0, 122, 255;
+    --accent: #00ff88;
+    --accent-rgb: 0, 255, 136;
     --background: #ffffff;
     --surface: #f8f9fa;
     --surface-light: #ffffff;
@@ -49,7 +49,7 @@
 [data-theme="dark"] {
     --primary: #ffffff;
     --secondary: #a1a1a6;
-    --accent: #007AFF;
+    --accent: #00ff88;
     --background: #000000;
     --surface: #1c1c1e;
     --surface-light: #2c2c2e;
@@ -63,7 +63,7 @@
 [data-theme="light"] {
     --primary: #1a1a1a;
     --secondary: #4a4a4a;
-    --accent: #007AFF;
+    --accent: #00ff88;
     --background: #ffffff;
     --surface: #f8f9fa;
     --surface-light: #ffffff;
