@@ -4,24 +4,48 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    
-    // Check for saved theme preference or default to dark mode
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-    
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-    
+    const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
+
+    const storedTheme = getStoredTheme();
+    const prefersDarkScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = storedTheme || (prefersDarkScheme ? 'dark' : 'light');
+
+    applyTheme(initialTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || initialTheme;
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            applyTheme(newTheme);
+            storeTheme(newTheme);
+        });
+    }
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+    }
+
     function updateThemeIcon(theme) {
+        if (!themeIcon) return;
         themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    function getStoredTheme() {
+        try {
+            return window.localStorage.getItem('theme');
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function storeTheme(theme) {
+        try {
+            window.localStorage.setItem('theme', theme);
+        } catch (error) {
+            // Storage may be unavailable (e.g., Safari private browsing)
+        }
     }
     
     // Smooth scrolling for navigation links
